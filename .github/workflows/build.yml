@@ -9,23 +9,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
-        
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
 
-    - name: Create Android Project Structure
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v3
+
+    - name: Create Android Project Files
       run: |
         mkdir -p app/src/main/java/com/butter/webapp
         mkdir -p app/src/main/res/values
         
-        # File build.gradle
         cat << 'EOF' > app/build.gradle
         plugins { id 'com.android.application' }
         android {
@@ -41,7 +41,6 @@ jobs:
         }
         EOF
         
-        # File AndroidManifest.xml
         cat << 'EOF' > app/src/main/AndroidManifest.xml
         <?xml version="1.0" encoding="utf-8"?>
         <manifest xmlns:android="http://schemas.android.com/apk/res/android">
@@ -57,7 +56,6 @@ jobs:
         </manifest>
         EOF
         
-        # File MainActivity.kt
         cat << 'EOF' > app/src/main/java/com/butter/webapp/MainActivity.kt
         package com.butter.webapp
         import android.app.Activity
@@ -71,22 +69,18 @@ jobs:
                 webView.webViewClient = WebViewClient()
                 webView.settings.javaScriptEnabled = true
                 // GANTI URL DI BAWAH DENGAN LINK AI STUDIO KAMU
-                webView.loadUrl("https://aistudio.google.com/apps/be")
+                webView.loadUrl("https://aistudio.google.com/apps/be") 
                 setContentView(webView)
             }
         }
         EOF
         
-        # File settings.gradle
         echo "rootProject.name = 'MLBBWebApp'" > settings.gradle
         echo "include ':app'" >> settings.gradle
-        echo "sdk.dir=/usr/local/lib/android/sdk" > local.properties
-        
-        # File build.gradle root
         echo "buildscript { dependencies { classpath 'com.android.tools.build:gradle:8.1.0' } }" > build.gradle
 
-    - name: Build APK
-      run: gradle assembleDebug
+    - name: Build APK with Gradle
+      run: gradle wrapper && ./gradlew assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
