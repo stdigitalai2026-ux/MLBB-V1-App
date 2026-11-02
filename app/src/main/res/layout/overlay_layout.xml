@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#E60F1115"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="12dp"
+    android:layout_marginTop="50dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- HEADER KOTAK -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ AI DETECTOR"
+                android:textColor="#E6B800"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/tvClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TUTUP [X]"
+                android:textColor="#FF0000"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_alignParentEnd="true"
+                android:padding="4dp"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- ISI TEKS -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/tvWarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Memindai layar...\nPastikan Anda sedang di fase Draft Pick."
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="4dp"/>
+        </ScrollView>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

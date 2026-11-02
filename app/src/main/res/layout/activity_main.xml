@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardBackgroundColor="#0B0E13"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- ICON / LOGO ATAS -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@android:drawable/ic_menu_compass"
+            app:tint="#E6B800"
+            android:contentDescription="Logo MLBB AI"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MLBB AI Analyzer"
+            android:textColor="#E6B800"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sistem Pendeteksi Build &amp; Counter Otomatis"
+            android:textColor="#9AA4B2"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:layout_marginBottom="40dp"/>
+
+        <!-- TOMBOL UTAMA -->
+        <Button
+            android:id="@+id/btnStartML"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="🚀 MULAI &amp; BUKA ML"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:backgroundTint="#27AE60"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="12dp"/>
+
+        <!-- TOMBOL SEKUNDER -->
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Aktifkan Overlay Saja"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:backgroundTint="#E6B800"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="12dp"/>
+
+        <!-- TOMBOL MATIKAN -->
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="MATIKAN SISTEM"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#C0392B"
+            app:cornerRadius="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pastikan izin Overlay &amp; Rekam Layar aktif."
+            android:textColor="#555555"
+            android:textSize="10sp"
+            android:layout_marginTop="24dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
